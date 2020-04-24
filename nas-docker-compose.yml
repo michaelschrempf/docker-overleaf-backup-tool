@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    app:
+        image: "mschrempf/overleaf-backup-tool:latest"
+        environment:
+            - username=yourusername
+            - password=yourpassword
+            - folders=overleafproject1;overleafproject2;overleafproject3
+        volumes:
+            - ./backup:/backup
+        command: ["bash", "/backup-tool/script.sh"]

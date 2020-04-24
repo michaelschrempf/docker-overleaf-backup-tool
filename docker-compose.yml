@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  overleaf-backup-tool:
+    environment: 
+        - username=<username>
+        - password=<password>
+        - folders=<overleaf_project_1>;<overleaf_project_2>;<overleaf_project_3>
+    build:        
+        context: .
+    volumes:
+        - ./backup:/backup
+    command: ["bash", "/backup-tool/script.sh"]
+
